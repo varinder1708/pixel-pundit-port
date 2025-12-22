@@ -11,17 +11,46 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+    phone:"",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+  
+    try {
+      const response = await fetch("http://localhost:3000/send-mail-post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject: "Contact Form Message",
+          text: formData.message,
+          name: formData.name,
+          fromEmail: formData.email,
+          phone: formData.phone,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+  
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+  
+      setFormData({ name: "", email: "", message: "", phone: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -99,6 +128,17 @@ const Contact = () => {
                     name="email"
                     placeholder="Your Email"
                     value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="bg-secondary border-border focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="phone"
+                    name="phone"
+                    placeholder="Your Phone No"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     className="bg-secondary border-border focus:border-primary"
