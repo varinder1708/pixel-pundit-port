@@ -18,7 +18,8 @@ const Contact = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:3000/send-mail-post", {
+      //const response = await fetch("http://localhost:3000/send-mail-post", {
+        const response = await fetch("https://send-mail-topaz.vercel.app/send-mail-post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
