@@ -80,16 +80,26 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">your.email@example.com</span>
+                    <span className="text-muted-foreground">varinder.sadana@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="text-muted-foreground">LinkedIn: /in/yourprofile</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
+  <div className="w-2 h-2 bg-accent rounded-full"></div>
+  <span className="text-muted-foreground">
+    LinkedIn:{" "}
+    <a
+      href="https://www.linkedin.com/in/varinder-s-b503b55/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-accent hover:underline"
+    >
+      in/varinder-s-b503b55/
+    </a>
+  </span>
+</div>
+                  {/* <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-muted-foreground">GitHub: /yourusername</span>
-                  </div>
+                  </div> */}
                 </div>
               </CardContent>
             </Card>
@@ -99,8 +109,8 @@ const Contact = () => {
                 <h3 className="text-xl font-bold mb-4 text-accent">What I Can Help With</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Full stack web application development</li>
-                  <li>• React frontend development</li>
-                  <li>• Node.js backend services</li>
+                  <li>• React | Javascript frontend development</li>
+                  <li>• Node.js | python backend services</li>
                   <li>• API design and development</li>
                   <li>• Code review and optimization</li>
                   <li>• Technical consulting</li>
